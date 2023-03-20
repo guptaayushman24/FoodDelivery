@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/drawable/ic_launcher_background.xml" value="0.121" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/drawable/orderbutton.xml" value="0.121" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_2.xml" value="0.1" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_activitynorth.xml" value="0.2" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_activitysouth.xml" value="0.1" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_arabic.xml" value="0.1" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_chinese.xml" value="0.19331453886427707" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_italian.xml" value="0.1" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_menu.xml" value="0.1" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_mexican.xml" value="0.25" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_service.xml" value="0.2359375" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/activity_main_shop.xml" value="0.25" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/card_arabic_layout.xml" value="0.1" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/card_chinese_layout.xml" value="0.264" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/card_italian_layout.xml" value="0.25" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/card_mexican_layout.xml" value="0.1" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/card_north_layout.xml" value="0.1" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/card_south_layout.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/fragment_page1.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/fragment_page2.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/fragment_page3.xml" value="0.25" />
+        <entry key="..\:/Users/gupta/AndroidStudioProjects/FoodDelivery/app/src/main/res/layout/page_1.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="8dp"
+    app:cardMaxElevation="2dp"
+    app:cardElevation="20dp"
+    android:backgroundTint="@color/black"
+    app:cardCornerRadius="30dp"
+
+    android:layout_marginVertical="10dp"
+    tools:context=".MainActivity">
+
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/northlunch"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/northindian">
+
+
+            </ImageView>
+
+
+            <TextView
+                android:id="@+id/lunch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Lunch"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/moneyn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Rs100"
+                android:textColor="#2FB534"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="160dp"
+
+                >
+
+                <LinearLayout
+                    android:id="@+id/vlinear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/plusn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:paddingHorizontal="10dp"
+                        android:text="+"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textViewn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <Button
+                        android:id="@+id/minusn"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:paddingHorizontal="10dp"
+                        android:text="-"
+                        android:textSize="20sp" />
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:id="@+id/tpricen"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=""
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginLeft="200dp"
+                android:gravity="center">
+
+
+            </TextView>
+
+        <Button
+            android:id="@+id/cartn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Calculate"
+            android:layout_marginHorizontal="160dp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/addtocartn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Add Cart">
+
+        </Button>
+
+
+
+
+
+
+        </LinearLayout>
+
+</androidx.cardview.widget.CardView>
