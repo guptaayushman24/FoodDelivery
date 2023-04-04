@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView textview1,textView2,textView3,textView4,textView5,textView6,textView7,textView8,textView9;
@@ -75,13 +77,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        textView9.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this,Cart.class);
-//                startActivity(intent);
-//            }
-//        });
+
+
+       textView9.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(MainActivity.this,Cart.class);
+               startActivity(intent);
+           }
+       });
+
 
 
 

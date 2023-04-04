@@ -42,6 +42,10 @@ public class DBhelper extends SQLiteOpenHelper {
         values.put(KEY_PRICE, price);
         database.insert(TABLE_CART, null, values);
         database.close();
+
+
+
+
     }
 
     public ArrayList<SouthModel> fetchItem() {
@@ -58,5 +62,22 @@ public class DBhelper extends SQLiteOpenHelper {
         cursor.close();
         database.close();
         return arrItem;
+    }
+
+
+
+
+    public Cursor viewData(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "Select * from " + TABLE_CART;
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor;
+    }
+
+
+    public void deleteAlldata(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_CART,null,null);
+        db.close();
     }
 }

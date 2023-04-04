@@ -87,6 +87,8 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
                     }
 
                 }
+
+
             }
         });
 

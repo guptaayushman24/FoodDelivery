@@ -132,6 +132,7 @@ public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder
                     int y = Integer.parseInt(b);
 
                     result = x*y;
+
                 }
             });
 

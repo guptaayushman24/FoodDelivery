@@ -141,7 +141,7 @@ public  class ViewHolder extends RecyclerView.ViewHolder{
                 else{
                     counter = counter -1;
                 }
-                 textview7.setText(counter);
+                 textview7.setText(String.valueOf(counter));
 
                 String a = textview7.getText().toString();
                 String b = moneym.getText().toString();
