@@ -1,4 +1,5 @@
 package com.mastercoding.fooddelivery;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -15,8 +16,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mastercoding.fooddelivery.NorthModel;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 
 
 public class ChineseAdapter extends RecyclerView.Adapter<ChineseAdapter.ViewHolder> {
@@ -53,29 +54,25 @@ public class ChineseAdapter extends RecyclerView.Adapter<ChineseAdapter.ViewHold
                 String text5 = holder.menuc.getText().toString();
                 String text6 = holder.tpricec.getText().toString();
 
-                if (!text5.isEmpty() && !text6.isEmpty()){
+                if (!text5.isEmpty() && !text6.isEmpty()) {
                     SQLiteDatabase database = dbHelper.getWritableDatabase();
 
                     ContentValues values = new ContentValues();
 
-                    values.put(dbHelper.KEY_NAME,text5);
-                    values.put(dbHelper.KEY_PRICE,text6);
+                    values.put(dbHelper.KEY_NAME, text5);
+                    values.put(dbHelper.KEY_PRICE, text6);
 
-                    long newRowId = database.insert("cart",null,values);
-                    if (newRowId==-1){
+                    long newRowId = database.insert("cart", null, values);
+                    if (newRowId == -1) {
                         Toast.makeText(view.getContext(), "Error inserting into the database", Toast.LENGTH_SHORT).show();
 
-                    }
-                    else{
+                    } else {
                         Toast.makeText(view.getContext(), "Item is Successfully added into the cart", Toast.LENGTH_SHORT).show();
                     }
 
                 }
             }
         });
-
-
-
 
 
     }
@@ -90,12 +87,12 @@ public class ChineseAdapter extends RecyclerView.Adapter<ChineseAdapter.ViewHold
         ImageView imagec;
         TextView menuc;
         TextView moneyc;
-        TextView textviewc;
+
         Button button5;
         TextView textview5;
         TextView tpricec;
         Button button6;
-        Button buttonc;
+
         Button addtocartc;
         int counter = 0;
         int result = 0;
@@ -109,7 +106,7 @@ public class ChineseAdapter extends RecyclerView.Adapter<ChineseAdapter.ViewHold
             textview5 = itemView.findViewById(R.id.textViewc);
             tpricec = itemView.findViewById(R.id.tpricec);
             button6 = itemView.findViewById(R.id.minusc);
-            buttonc = itemView.findViewById(R.id.cartc);
+
             addtocartc = itemView.findViewById(R.id.addtocartc);
 
 
@@ -125,9 +122,10 @@ public class ChineseAdapter extends RecyclerView.Adapter<ChineseAdapter.ViewHold
                     String b = moneyc.getText().toString();
 
                     int x = Integer.parseInt(a);
-                    int y =  Integer.parseInt(b);
+                    int y = Integer.parseInt(b);
 
-                   result = x*y;
+                    result = x * y;
+                    tpricec.setText(result + "");
 
 
                 }
@@ -135,10 +133,9 @@ public class ChineseAdapter extends RecyclerView.Adapter<ChineseAdapter.ViewHold
             button6.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (counter==0){
-                        counter=0;
-                    }
-                    else{
+                    if (counter == 0) {
+                        counter = 0;
+                    } else {
                         counter = counter - 1;
 
                         textview5.setText(String.valueOf(counter));
@@ -147,21 +144,16 @@ public class ChineseAdapter extends RecyclerView.Adapter<ChineseAdapter.ViewHold
                         String b = moneyc.getText().toString();
 
                         int x = Integer.parseInt(a);
-                        int y =  Integer.parseInt(b);
+                        int y = Integer.parseInt(b);
 
-                        result = x*y;
+                        result = x * y;
+                        tpricec.setText(result + "");
 
 
                     }
                 }
             });
 
-            buttonc.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    tpricec.setText(result+"");
-                }
-            });
 
         }
 

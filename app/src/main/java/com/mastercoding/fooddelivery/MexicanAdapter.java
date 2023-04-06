@@ -20,7 +20,7 @@ public class MexicanAdapter extends RecyclerView.Adapter<MexicanAdapter.ViewHold
 
     private DBhelper dBhelper;
     Context context;
-     ArrayList<MexicanModel> MexicanModelArrayList;
+    ArrayList<MexicanModel> MexicanModelArrayList;
 
     public MexicanAdapter(Context context, ArrayList<MexicanModel> MexicanModelArrayList) {
         this.context = context;
@@ -50,20 +50,19 @@ public class MexicanAdapter extends RecyclerView.Adapter<MexicanAdapter.ViewHold
                 String text7 = holder.menum.getText().toString();
                 String text8 = holder.tpricem.getText().toString();
 
-                if (!text7.isEmpty() && !text8.isEmpty()){
+                if (!text7.isEmpty() && !text8.isEmpty()) {
                     SQLiteDatabase database = dBhelper.getWritableDatabase();
 
                     ContentValues values = new ContentValues();
 
-                    values.put(dBhelper.KEY_NAME,text7);
-                    values.put(dBhelper.KEY_PRICE,text8);
+                    values.put(dBhelper.KEY_NAME, text7);
+                    values.put(dBhelper.KEY_PRICE, text8);
 
-                    long newRowId = database.insert("cart",null,values);
-                    if (newRowId==-1){
+                    long newRowId = database.insert("cart", null, values);
+                    if (newRowId == -1) {
                         Toast.makeText(view.getContext(), "Error inserting into the database", Toast.LENGTH_SHORT).show();
 
-                    }
-                    else{
+                    } else {
                         Toast.makeText(view.getContext(), "Item is Successfully added into the cart", Toast.LENGTH_SHORT).show();
                     }
 
@@ -72,100 +71,85 @@ public class MexicanAdapter extends RecyclerView.Adapter<MexicanAdapter.ViewHold
         });
 
 
-
-
-
-
     }
-
-
 
 
     @Override
     public int getItemCount() {
         return MexicanModelArrayList.size();
     }
-public  class ViewHolder extends RecyclerView.ViewHolder{
-    ImageView imagem;
-    TextView menum ;
-    TextView moneym;
 
-    Button button7;
-    TextView textview7;
-    TextView tpricem;
-    Button button8;
-    Button buttonm;
-    Button addtocartm;
-    int counter = 0;
-    int result=0;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imagem;
+        TextView menum;
+        TextView moneym;
 
-    public ViewHolder(@NonNull View itemView) {
-        super(itemView);
-        imagem = itemView.findViewById(R.id.vegfajita);
-        menum = itemView.findViewById(R.id.vegfajitam);
-        moneym = itemView.findViewById(R.id.moneym);
-        button7 = itemView.findViewById(R.id.plusm);
-        textview7 = itemView.findViewById(R.id.textViewm);
-        tpricem = itemView.findViewById(R.id.tpricem);
-        button8 = itemView.findViewById(R.id.minusm);
-        buttonm = itemView.findViewById(R.id.cartm);
-        addtocartm = itemView.findViewById(R.id.addtocartm);
+        Button button7;
+        TextView textview7;
+        TextView tpricem;
+        Button button8;
 
+        Button addtocartm;
+        int counter = 0;
+        int result = 0;
 
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                counter = Integer.parseInt(textview7.getText().toString());
-                counter = counter + 1;
-                textview7.setText(String.valueOf(counter));
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imagem = itemView.findViewById(R.id.vegfajita);
+            menum = itemView.findViewById(R.id.vegfajitam);
+            moneym = itemView.findViewById(R.id.moneym);
+            button7 = itemView.findViewById(R.id.plusm);
+            textview7 = itemView.findViewById(R.id.textViewm);
+            tpricem = itemView.findViewById(R.id.tpricem);
+            button8 = itemView.findViewById(R.id.minusm);
 
-                String a = textview7.getText().toString();
-                String b = moneym.getText().toString();
+            addtocartm = itemView.findViewById(R.id.addtocartm);
 
 
-                int x = Integer.parseInt(a);
-                int y = Integer.parseInt(b);
+            button7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    counter = Integer.parseInt(textview7.getText().toString());
+                    counter = counter + 1;
+                    textview7.setText(String.valueOf(counter));
+
+                    String a = textview7.getText().toString();
+                    String b = moneym.getText().toString();
 
 
-                result = x*y;
-            }
-        });
+                    int x = Integer.parseInt(a);
+                    int y = Integer.parseInt(b);
 
 
-        button8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (counter==0){
-                    counter=0;
+                    result = x * y;
+                    tpricem.setText(result + "");
                 }
-                else{
-                    counter = counter -1;
+            });
+
+
+            button8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (counter == 0) {
+                        counter = 0;
+                    } else {
+                        counter = counter - 1;
+                    }
+                    textview7.setText(String.valueOf(counter));
+
+                    String a = textview7.getText().toString();
+                    String b = moneym.getText().toString();
+
+                    int x = Integer.parseInt(a);
+                    int y = Integer.parseInt(b);
+
+                    result = x * y;
+                    tpricem.setText(result + "");
+
                 }
-                 textview7.setText(String.valueOf(counter));
-
-                String a = textview7.getText().toString();
-                String b = moneym.getText().toString();
-
-                int x = Integer.parseInt(a);
-                int y = Integer.parseInt(b);
-
-                result = x*y;
-
-            }
-        });
+            });
 
 
-        buttonm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tpricem.setText(result+"");
-            }
-        });
-
-
-
-
-
+        }
     }
-}
 }

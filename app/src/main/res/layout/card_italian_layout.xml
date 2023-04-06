@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="8dp"
-    app:cardMaxElevation="2dp"
-    app:cardElevation="20dp"
-    android:backgroundTint="@color/black"
-    app:cardCornerRadius="30dp"
-
     android:layout_marginVertical="10dp"
+    android:backgroundTint="@color/black"
+    android:elevation="8dp"
+    app:cardCornerRadius="30dp"
+    app:cardElevation="20dp"
+
+    app:cardMaxElevation="2dp"
     tools:context=".MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -45,18 +46,16 @@
             </TextView>
 
 
-
-
             <TextView
                 android:id="@+id/moneyi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Rs100"
-                android:textStyle="bold"
-                android:textSize="20sp"
                 android:textColor="#2FB534"
-                android:gravity="center">
-            </TextView>
+                android:textSize="20sp"
+                android:textStyle="bold"></TextView>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card1"
                 android:layout_width="wrap_content"
@@ -99,29 +98,20 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <TextView
                 android:id="@+id/tpricei"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text=""
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
                 android:layout_marginLeft="200dp"
-                android:gravity="center">
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold">
 
 
             </TextView>
-
-            <Button
-                android:id="@+id/carti"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Calculate"
-                android:layout_marginHorizontal="160dp">
-
-            </Button>
-
 
 
             <Button

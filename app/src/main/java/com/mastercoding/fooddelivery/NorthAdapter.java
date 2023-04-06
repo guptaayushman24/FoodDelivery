@@ -31,7 +31,6 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
     ArrayList<NorthModel> NorthModelArrayList;
 
 
-
     public NorthAdapter(Context context, ArrayList<NorthModel> NorthModelArrayList) {
         this.context = context;
         this.NorthModelArrayList = NorthModelArrayList;
@@ -47,8 +46,8 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_north_layout, parent, false);
-        View v2=LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main_activitynorth, parent, false);
-        return new ViewHolder(view,v2);
+        View v2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_main_activitynorth, parent, false);
+        return new ViewHolder(view, v2);
 
 
     }
@@ -56,7 +55,7 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-         NorthModel model = NorthModelArrayList.get(position);
+        NorthModel model = NorthModelArrayList.get(position);
         holder.moneyn.setText(model.getMoneyn());
         holder.menun.setText(model.getMenun());
         holder.imagen.setImageResource(model.getImagen());
@@ -69,20 +68,19 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
                 String text3 = holder.menun.getText().toString();
                 String text4 = holder.tpricen.getText().toString();
 
-                if (!text3.isEmpty() && !text4.isEmpty()){
+                if (!text3.isEmpty() && !text4.isEmpty()) {
                     SQLiteDatabase database = dbHelper.getWritableDatabase();
 
                     ContentValues values = new ContentValues();
 
-                    values.put(dbHelper.KEY_NAME,text3);
-                    values.put(dbHelper.KEY_PRICE,text4);
+                    values.put(dbHelper.KEY_NAME, text3);
+                    values.put(dbHelper.KEY_PRICE, text4);
 
-                    long newRowId = database.insert("cart",null,values);
-                    if (newRowId==-1){
+                    long newRowId = database.insert("cart", null, values);
+                    if (newRowId == -1) {
                         Toast.makeText(view.getContext(), "Error inserting into the database", Toast.LENGTH_SHORT).show();
 
-                    }
-                    else{
+                    } else {
                         Toast.makeText(view.getContext(), "Item is Successfully added into the cart", Toast.LENGTH_SHORT).show();
                     }
 
@@ -93,30 +91,7 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
-        
-        
-
-
-
-
-
     }
-
 
 
     @Override
@@ -126,7 +101,7 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
     }
 
     // View holder class for initializing of your views such as TextView and Imageview
-    public  class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imagen;
         ImageView addtocart;
@@ -138,22 +113,12 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
         TextView qunatityn;
         Button cartn;
         Button buttonaddtocartn;
-        int counter=0;
-        int result=0;
-
-
-
-
-
-
-
+        int counter = 0;
+        int result = 0;
 
 
         public ViewHolder(@NonNull View itemView, View v2) {
             super(itemView);
-
-
-
 
 
             imagen = itemView.findViewById(R.id.northlunch);
@@ -165,7 +130,7 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
             qunatityn = itemView.findViewById(R.id.textViewn);
             tpricen = itemView.findViewById(R.id.tpricen);
             buttonaddtocartn = itemView.findViewById(R.id.addtocartn);
-            cartn = itemView.findViewById(R.id.cartn);
+
 
             dbHelper = new DBhelper(itemView.getContext());
 
@@ -174,7 +139,7 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
                 public void onClick(View view) {
                     counter = Integer.parseInt(qunatityn.getText().toString());
 
-                    counter = counter+1;
+                    counter = counter + 1;
                     qunatityn.setText(String.valueOf(counter));
 
 
@@ -184,7 +149,8 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
                     int x = Integer.parseInt(a);
                     int y = Integer.parseInt(b);
 
-                    result = x*y;
+                    result = x * y;
+                    tpricen.setText(result + "");
                 }
             });
 
@@ -192,13 +158,12 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
                 @Override
                 public void onClick(View view) {
                     counter = Integer.parseInt(qunatityn.getText().toString());
-                    if (counter==0){
-                        counter=0;
+                    if (counter == 0) {
+                        counter = 0;
+                    } else {
+                        counter = counter - 1;
                     }
-                    else{
-                        counter = counter-1;
-                    }
-                    qunatityn.setText(counter+"");
+                    qunatityn.setText(counter + "");
 
                     String a = qunatityn.getText().toString();
                     String b = moneyn.getText().toString();
@@ -206,19 +171,10 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.ViewHolder> 
                     int x = Integer.parseInt(a);
                     int y = Integer.parseInt(b);
 
-                    result = x*y;
+                    result = x * y;
+                    tpricen.setText(result + "");
                 }
             });
-            cartn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    tpricen.setText(result+"");
-                }
-            });
-
-
-
-
 
 
         }

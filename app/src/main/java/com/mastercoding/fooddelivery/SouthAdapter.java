@@ -1,4 +1,5 @@
 package com.mastercoding.fooddelivery;
+
 import static com.mastercoding.fooddelivery.DBhelper.DATABASE_NAME;
 
 import android.content.ContentValues;
@@ -24,8 +25,8 @@ import java.util.ArrayList;
 
 public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> {
     private DBhelper dbHelper;
-     Context context;
-     private ArrayList<SouthModel> SouthModelArrayList;
+    Context context;
+    private ArrayList<SouthModel> SouthModelArrayList;
 
     // Constructor
 
@@ -33,7 +34,6 @@ public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> 
         this.context = context;
         SouthModelArrayList = southModelArrayList;
         dbHelper = new DBhelper(context);
-
 
 
     }
@@ -60,24 +60,23 @@ public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> 
                 Log.d("TAG", "Button clicked!"); // Add this line
                 String text1 = holder.menus.getText().toString();
                 String text2 = holder.tprice.getText().toString();
-                Log.d("TAG","Text1" + text1);
-                Log.d("TAG","Text2" + text2);
+                Log.d("TAG", "Text1" + text1);
+                Log.d("TAG", "Text2" + text2);
 
-                if (!text1.isEmpty() && !text2.isEmpty()){
+                if (!text1.isEmpty() && !text2.isEmpty()) {
                     SQLiteDatabase database = dbHelper.getWritableDatabase();
 
                     ContentValues values = new ContentValues();
-                    values.put(dbHelper.KEY_NAME,text1);
-                    values.put(dbHelper.KEY_PRICE,text2);
+                    values.put(dbHelper.KEY_NAME, text1);
+                    values.put(dbHelper.KEY_PRICE, text2);
 
 
-                    long newRowId = database.insert("cart",null,values);
+                    long newRowId = database.insert("cart", null, values);
 
-                    if (newRowId==-1){
-                        Toast.makeText(view.getContext(),"Error inserting into database",Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(view.getContext(),"Item is Successfully added into the cart",Toast.LENGTH_SHORT).show();
+                    if (newRowId == -1) {
+                        Toast.makeText(view.getContext(), "Error inserting into database", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(view.getContext(), "Item is Successfully added into the cart", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -85,11 +84,6 @@ public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> 
 
             }
         });
-
-
-
-
-
 
 
     }
@@ -100,7 +94,7 @@ public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> 
         return SouthModelArrayList.size();
     }
 
-    public  class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView images;
         TextView menus;
         TextView moneys;
@@ -124,7 +118,6 @@ public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> 
             textview3 = itemView.findViewById(R.id.textViews);
             tprice = itemView.findViewById(R.id.tprice);
             button4 = itemView.findViewById(R.id.minuss);
-            buttons = itemView.findViewById(R.id.carts);
             buttonaddtocart = itemView.findViewById(R.id.addtocart);
 
             dbHelper = new DBhelper(itemView.getContext());
@@ -133,7 +126,7 @@ public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> 
             button3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                     counter = Integer.parseInt(textview3.getText().toString());
+                    counter = Integer.parseInt(textview3.getText().toString());
                     counter = counter + 1;
                     Log.d("DEBUG", "increment button clicked, value: " + counter);
                     textview3.setText(String.valueOf(counter));
@@ -143,9 +136,8 @@ public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> 
                     int x = Integer.parseInt(a);
                     int y = Integer.parseInt(b);
 
-                     result = x*y;
-
-
+                    result = x * y;
+                    tprice.setText(result + "");
 
 
                 }
@@ -154,43 +146,22 @@ public class SouthAdapter extends RecyclerView.Adapter<SouthAdapter.ViewHolder> 
                 @Override
                 public void onClick(View view) {
                     counter = Integer.parseInt(textview3.getText().toString());
-                    if (counter==0){
-                        counter=0;
+                    if (counter == 0) {
+                        counter = 0;
+                    } else {
+                        counter = counter - 1;
                     }
-                    else{
-                        counter = counter-1;
-                    }
-                    textview3.setText(counter+"");
+                    textview3.setText(counter + "");
                     String a = textview3.getText().toString();
                     String b = moneys.getText().toString().replaceAll("[^\\d.]", "");
 
                     int x = Integer.parseInt(a);
                     int y = Integer.parseInt(b);
 
-                    result = x*y;
+                    result = x * y;
+                    tprice.setText(result + "");
                 }
             });
-
-
-
-
-
-//
-
-            buttons.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    tprice.setText(result+"");
-                }
-            });
-
-
-
-
-
-
-
-
 
 
         }

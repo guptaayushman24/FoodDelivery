@@ -19,8 +19,8 @@ import java.util.ArrayList;
 public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder> {
 
     private static DBhelper dbHelper;
-     Context context;
-     ArrayList<ArabicModel> ArabicModelArrayList;
+    Context context;
+    ArrayList<ArabicModel> ArabicModelArrayList;
 
     public ArabicAdapter(Context context, ArrayList<ArabicModel> arabicModelArrayList) {
         this.context = context;
@@ -54,20 +54,19 @@ public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder
                 String text11 = holder.menua.getText().toString();
                 String text12 = holder.tpricea.getText().toString();
 
-                if (!text11.isEmpty() && !text12.isEmpty()){
+                if (!text11.isEmpty() && !text12.isEmpty()) {
                     SQLiteDatabase database = dbHelper.getWritableDatabase();
 
                     ContentValues values = new ContentValues();
 
-                    values.put(dbHelper.KEY_NAME,text11);
-                    values.put(dbHelper.KEY_PRICE,text12);
+                    values.put(dbHelper.KEY_NAME, text11);
+                    values.put(dbHelper.KEY_PRICE, text12);
 
-                    long newRowId = database.insert("cart",null,values);
-                    if (newRowId==-1){
+                    long newRowId = database.insert("cart", null, values);
+                    if (newRowId == -1) {
                         Toast.makeText(view.getContext(), "Error inserting into the database", Toast.LENGTH_SHORT).show();
 
-                    }
-                    else{
+                    } else {
                         Toast.makeText(view.getContext(), "Item is Successfully added into the cart", Toast.LENGTH_SHORT).show();
                     }
 
@@ -93,7 +92,7 @@ public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder
         TextView quantitya;
         TextView tpricea;
         Button button12;
-        Button carta;
+       
         Button addtocartm;
         int counter = 0;
         int result = 0;
@@ -109,7 +108,7 @@ public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder
             quantitya = itemView.findViewById(R.id.textViewa);
             tpricea = itemView.findViewById(R.id.tpricea);
             button12 = itemView.findViewById(R.id.minusa);
-            carta = itemView.findViewById(R.id.carta);
+
             addtocartm = itemView.findViewById(R.id.addtocarta);
 
 
@@ -121,7 +120,7 @@ public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder
                 public void onClick(View view) {
                     counter = Integer.parseInt(textview11.getText().toString());
 
-                    counter = counter+1;
+                    counter = counter + 1;
                     textview11.setText(String.valueOf(counter));
 
 
@@ -131,7 +130,8 @@ public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder
                     int x = Integer.parseInt(a);
                     int y = Integer.parseInt(b);
 
-                    result = x*y;
+                    result = x * y;
+                    tpricea.setText(result + "");
 
                 }
             });
@@ -140,13 +140,12 @@ public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder
                 @Override
                 public void onClick(View view) {
                     counter = Integer.parseInt(textview11.getText().toString());
-                    if (counter==0){
-                        counter=0;
+                    if (counter == 0) {
+                        counter = 0;
+                    } else {
+                        counter = counter - 1;
                     }
-                    else{
-                        counter = counter-1;
-                    }
-                    textview11.setText(counter+"");
+                    textview11.setText(counter + "");
 
                     String a = textview11.getText().toString();
                     String b = moneya.getText().toString();
@@ -154,17 +153,11 @@ public class ArabicAdapter extends RecyclerView.Adapter<ArabicAdapter.ViewHolder
                     int x = Integer.parseInt(a);
                     int y = Integer.parseInt(b);
 
-                    result = x*y;
+                    result = x * y;
+                    tpricea.setText(result + "");
                 }
             });
 
-
-            carta.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    tpricea.setText(result+"");
-                }
-            });
 
         }
     }
